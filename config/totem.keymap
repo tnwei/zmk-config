@@ -1,0 +1,102 @@
+// TOTEM keymap
+// L0: BASE - QWERTY
+// L1: NAV  - hold right middle thumb (arrows, nav, braces)
+// L2: NUM  - hold left outer thumb (numpad + F-keys)
+// L3: ADJ  - hold NUM then right outer thumb (system: reset, bootloader, BT)
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
+
+#define BASE 0
+#define NAV  1
+#define NUM  2
+#define ADJ  3
+
+/ {
+    behaviors {
+        win_os: win_os {
+            compatible = "zmk,behavior-sticky-key";
+            #binding-cells = <0>;
+            bindings = <&kp LGUI>;
+            release-after-ms = <2000>;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+        // Q+W chord = ESC keypress
+        combo_esc {
+            timeout-ms = <50>;
+            key-positions = <0 1>;
+            bindings = <&kp ESC>;
+        };
+        // Z+X chord = one-shot Win for 2s
+        combo_win {
+            timeout-ms = <50>;
+            key-positions = <21 22>;
+            bindings = <&win_os>;
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        base_layer {
+            display-name = "BASE";
+            //      Q  W  E  R   T      Y    U   I    O  P
+            //      A  S  D  F   G      H    J   K    L  ;
+            // TAB  Z  X  C  V   B      N    M   ,    .  /  '
+            //            L2 SPC CTRL   SHFT L1  WIN
+            bindings = <
+    &kp Q       &kp W       &kp E       &kp R       &kp T           &kp Y       &kp U       &kp I       &kp O       &kp P
+    &kp A       &kp S       &kp D       &kp F       &kp G           &kp H       &kp J       &kp K       &kp L       &kp SEMI
+    &kp TAB     &kp Z       &kp X       &kp C       &kp V       &kp B           &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH    &kp SQT
+                                    &mo NUM    &kp SPACE   &kp LCTRL      &kp LSHFT  &mo NAV    &kp LGUI
+            >;
+        };
+
+        nav_layer {
+            display-name = "NAV";
+            //      GRAVE DASH   <>   EQUAL   <>           <>    PgUp  UP    PgDn    BkSp
+            //      <>    LBRCE  <>   RBRACE  BKSLSH       HOME  LEFT  DOWN  RGHT    END
+            // ESC  <>    <>     <>   <>      <>           ALT   DEL   RET   PRTSC   <>     <>
+            //                   <>    <>     <>      <>    <>    <>
+            bindings = <
+    &kp GRAVE   &kp MINUS   &trans      &kp EQUAL   &trans          &kp PG_UP   &kp UP      &kp PG_DN   &trans      &kp BSPC
+    &trans      &kp LBKT    &trans      &kp RBKT    &kp BSLH        &kp HOME    &kp LEFT    &kp DOWN    &kp RIGHT   &kp END
+    &kp ESC     &trans      &trans      &trans      &trans      &trans      &kp LALT    &kp DEL     &kp RET     &kp C_PRINT &trans      &trans
+                                    &trans      &trans      &trans          &trans      &trans     &mo ADJ
+            >;
+        };
+
+        num_layer {
+            display-name = "NUM";
+            //      <>   7    8    9    0      <>   F7   F8   F9   F10
+            //      <>   4    5    6    <>     <>   F4   F5   F6   F11
+            // <>   <>   1    2    3    <>     <>   F1   F2   F3   F12   <>
+            //                <>   <>   <>     <>   <>   <>
+            bindings = <
+    &trans      &kp N7      &kp N8      &kp N9      &kp N0          &trans      &kp F7      &kp F8      &kp F9      &kp F10
+    &trans      &kp N4      &kp N5      &kp N6      &trans          &trans      &kp F4      &kp F5      &kp F6      &kp F11
+    &trans      &trans      &kp N1      &kp N2      &kp N3      &trans      &trans      &kp F1      &kp F2      &kp F3      &kp F12     &trans
+                                    &trans      &trans      &trans          &trans      &trans     &mo ADJ
+            >;
+        };
+
+        adj_layer {
+            display-name = "ADJ";
+            // RST   BTCLR OUT   <>    <>       <>   <>   <>   <>   <>
+            // BL    BTNXT <>    <>    <>       <>   <>   <>   <>   <>
+            // <>    <>    BTPRV <>    <>    <>       <>   <>   <>   <>   <>   <>
+            //                   <>    <>    <>        <>   <>   <>
+            bindings = <
+    &sys_reset  &bt BT_CLR  &out OUT_TOG &trans      &trans          &trans      &trans      &trans      &trans      &trans
+    &bootloader &bt BT_NXT  &trans      &trans      &trans          &trans      &trans      &trans      &trans      &trans
+    &trans      &trans      &bt BT_PRV  &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
+                                    &trans      &trans      &trans          &trans      &trans      &trans
+            >;
+        };
+    };
+};
