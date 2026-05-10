@@ -15,15 +15,6 @@
 #define ADJ  3
 
 / {
-    behaviors {
-        win_os: win_os {
-            compatible = "zmk,behavior-sticky-key";
-            #binding-cells = <0>;
-            bindings = <&kp LGUI>;
-            release-after-ms = <2000>;
-        };
-    };
-
     combos {
         compatible = "zmk,combos";
         // Q+W chord = ESC keypress
@@ -36,7 +27,7 @@
         combo_win {
             timeout-ms = <50>;
             key-positions = <21 22>;
-            bindings = <&win_os>;
+            bindings = <&sk LGUI>;
         };
     };
 
