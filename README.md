@@ -31,10 +31,7 @@ Have a Makefile for this that runs `west build` from `zmk/app/` with:
 
 ### Setup (one-time)
 
-```bash
-make setup
-# Clones ZMK into zmk-config/zmk/, inits west, updates dependencies (~5 min)
-```
+`uv tool install west zmk`, then run `make setup` which clones ZMK into zmk-config/zmk/, inits west, and updates dependencies. Also need to have some compilers downloaded. Not too straightforward and I actually didnt follow through after seeing the gh action build.
 
 ### Build
 
