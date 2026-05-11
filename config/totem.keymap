@@ -18,8 +18,9 @@
     behaviors {
         // urob timeless HRM: left-hand mods trigger on right-hand/thumb keys
         hml: hml {
+            bindings = <&kp>, <&kp>;
             compatible = "zmk,behavior-hold-tap";
-            display-name = "HOMEROW_MOD_LEFT";
+            label = "HOMEROW_MOD_LEFT";
             #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <280>;
@@ -32,8 +33,9 @@
 
         // urob timeless HRM: right-hand mods trigger on left-hand/thumb keys
         hmr: hmr {
+            bindings = <&kp>, <&kp>;
             compatible = "zmk,behavior-hold-tap";
-            display-name = "HOMEROW_MOD_RIGHT";
+            label = "HOMEROW_MOD_RIGHT";
             #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <280>;
