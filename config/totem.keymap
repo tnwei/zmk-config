@@ -84,13 +84,13 @@
         nav_layer {
             display-name = "NAV";
             //      GRAVE DASH   <>   EQUAL   <>           <>    PgUp  UP    PgDn    BkSp
-            //      <>    LBRCE  <>   RBRACE  BKSLSH       HOME  LEFT  DOWN  RGHT    END
+            //      <>    LBRCE  BSLH RBRACE  <>       HOME  LEFT  DOWN  RGHT    END
             // ESC  <>    <>     <>   <>      <>           ALT   DEL   RET   PRTSC   <>     <>
             //                   <>    <>     <>      <>    <>    <>
             bindings = <
-    &kp GRAVE   &kp MINUS   &trans      &kp EQUAL   &trans          &kp PG_UP   &kp UP      &kp PG_DN   &trans      &kp BSPC
-    &trans      &kp LBKT    &trans      &kp RBKT    &kp BSLH        &kp HOME    &kp LEFT    &kp DOWN    &kp RIGHT   &kp END
-    &kp ESC     &trans      &trans      &trans      &trans      &trans      &kp LALT    &kp DEL     &kp RET     &kp PSCRN   &trans      &trans
+    &kp GRAVE   &kp MINUS   &trans      &kp EQUAL   &trans        &kp PG_UP   &kp UP      &kp PG_DN   &trans      &kp BSPC
+    &trans      &kp LBKT    &kp BSLH    &kp RBKT    &trans        &kp HOME    &kp LEFT    &kp DOWN    &kp RIGHT   &kp END
+    &kp ESC     &trans      &trans      &trans      &trans        &trans      &kp LALT    &kp DEL     &kp RET     &kp PSCRN   &trans      &trans
                                     &trans      &trans      &trans          &trans      &trans     &mo ADJ
             >;
         };
