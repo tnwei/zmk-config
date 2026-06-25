@@ -88,7 +88,7 @@
             // ESC  <>    <>     <>   <>      <>           ALT   DEL   RET   PRTSC   <>     <>
             //                   <>    <>     <>      <>    <>    <>
             bindings = <
-            &kp GRAVE   &kp MINUS   &trans      &kp EQUAL   &trans      &kp trans   &kp PG_UP   &kp UP      &kp PG_DN   &kp BSPC
+            &kp GRAVE   &kp MINUS   &trans      &kp EQUAL   &trans      &trans   &kp PG_UP   &kp UP      &kp PG_DN   &kp BSPC
             &trans      &kp LBKT    &kp BSLH    &kp RBKT    &trans      &kp HOME    &kp LEFT    &kp DOWN    &kp RIGHT   &kp END
     &kp ESC &trans      &trans      &trans      &trans      &trans      &kp LALT    &kp DEL     &kp RET     &kp PSCRN   &trans      &trans
                                     &trans      &trans      &trans      &trans      &trans     &mo ADJ
