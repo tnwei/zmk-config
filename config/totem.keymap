@@ -22,10 +22,14 @@
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MOD_LEFT";
             #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <280>;
+            #flavor = "balanced";
+            # default tapping-term-ms was 280ms
+            # this time is how long to hold a key on its own to count as a hold
+            tapping-term-ms = <250>;
             quick-tap-ms = <175>;
-            require-prior-idle-ms = <150>;
+            # default require-prior-idle-ms is 150ms
+            # this is min time since last keypress before a press can be considered a hold
+            require-prior-idle-ms = <120>;
             hold-trigger-key-positions
                 = <5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 30 31 32 33 34 35 36 37>;
             hold-trigger-on-release;
