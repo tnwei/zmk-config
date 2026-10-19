@@ -49,7 +49,7 @@ make clean      # wipe build/ and start fresh
 
 ## Flash firmware to keyboard
 
-Double-tap reset on controller → USB storage appears → copy the `.uf2` file.
+Double-tap reset on controller → USB storage appears → copy the `.uf2` file. The drive disappears immediately after flashing — to flash another file, re-enter bootloader first.
 
-Note: make sure that the reset key (`&bootloader`) is actually in the keymap! 
+Note: make sure that the reset key (`&bootloader`) is actually in the keymap! It's on the ADJ layer (hold NUM + rightmost thumb), in the physical position of the **A** key.
 If both halves lose bootloader access, flash `settings_reset` firmware as last resort. Wait but how??
